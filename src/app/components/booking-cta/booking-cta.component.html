@@ -39,8 +39,195 @@
       </a>
     </div>
 
+    <!-- Venues Carousel: Bares y salas que nos contratan -->
+    <section
+      class="venues-carousel-section"
+      aria-labelledby="venues-carousel-heading"
+      (mouseenter)="setCarouselPaused(true)"
+      (mouseleave)="setCarouselPaused(false)"
+      (focusin)="setCarouselPaused(true)"
+      (focusout)="setCarouselPaused(false)"
+    >
+      <div class="venues-carousel-header">
+        <div class="venues-heading-group">
+          <h3 id="venues-carousel-heading" class="venues-carousel-heading">
+            Bares y salas que nos <span class="heading-italic">contratan</span>
+          </h3>
+          <p class="venues-carousel-sub">
+            Escenarios oficiales de la gira 2027 · Pulsa en un local para filtrar sus fechas
+          </p>
+        </div>
+
+        <div class="carousel-controls" role="group" aria-label="Controles del carrusel de bares">
+          <button
+            type="button"
+            class="carousel-arrow-btn"
+            (click)="prevVenue()"
+            aria-label="Ver bar anterior"
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M12.5 15L7.5 10L12.5 5"
+                stroke="currentColor"
+                stroke-width="1.65"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <span class="carousel-counter tabular-nums" aria-live="polite">
+            0{{ activeSlideIndex() + 1 }} / 0{{ venues.length }}
+          </span>
+
+          <button
+            type="button"
+            class="carousel-arrow-btn"
+            (click)="nextVenue()"
+            aria-label="Ver siguiente bar"
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M7.5 5L12.5 10L7.5 15"
+                stroke="currentColor"
+                stroke-width="1.65"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Carousel Track -->
+      <div
+        #carouselTrack
+        class="venues-carousel-track"
+        role="region"
+        aria-label="Carrusel de imágenes de los bares que nos contratan"
+        (scroll)="onTrackScroll()"
+      >
+        @for (venue of venues; track venue.id; let i = $index) {
+          <article
+            #venueSlide
+            class="venue-slide"
+            [class.is-active-slide]="activeSlideIndex() === i"
+          >
+            <button
+              type="button"
+              class="venue-slide-trigger"
+              (click)="selectVenueDates(venue.filterValue)"
+              [attr.aria-label]="'Ver fechas en ' + venue.name + ' (' + venue.city + ')'"
+            >
+              <div class="venue-logo-stage">
+                @switch (venue.id) {
+                  @case ('paddys-point') {
+                    <img
+                      src="/images/paddys.png"
+                      [alt]="venue.imageAlt"
+                      class="venue-logo-img venue-logo-img--paddys-point"
+                      width="434"
+                      height="434"
+                      loading="lazy"
+                    />
+                  }
+                  @case ('saxo-moraira') {
+                    <img
+                      src="/images/saxo.png"
+                      [alt]="venue.imageAlt"
+                      class="venue-logo-img venue-logo-img--saxo-moraira"
+                      width="600"
+                      height="259"
+                      loading="lazy"
+                    />
+                  }
+                  @case ('the-robins') {
+                    <img
+                      src="/images/robins.png"
+                      [alt]="venue.imageAlt"
+                      class="venue-logo-img venue-logo-img--the-robins"
+                      width="620"
+                      height="349"
+                      loading="lazy"
+                    />
+                  }
+                  @case ('puerta-falsa') {
+                    <img
+                      src="/images/puertafalsa.png"
+                      [alt]="venue.imageAlt"
+                      class="venue-logo-img venue-logo-img--puerta-falsa"
+                      width="522"
+                      height="208"
+                      loading="lazy"
+                    />
+                  }
+                }
+              </div>
+
+              <div class="venue-slide-footer">
+                <div class="venue-meta-primary">
+                  <span class="venue-slide-name">{{ venue.name }}</span>
+                  <span class="venue-slide-city">{{ venue.city }}</span>
+                </div>
+                <span class="venue-slide-gigs tabular-nums">{{ venue.gigsLabel }} →</span>
+              </div>
+            </button>
+          </article>
+        }
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="carousel-dots" role="tablist" aria-label="Seleccionar bar en el carrusel">
+        @for (venue of venues; track venue.id; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            class="carousel-dot"
+            [class.is-active]="activeSlideIndex() === i"
+            [attr.aria-selected]="activeSlideIndex() === i"
+            [attr.aria-label]="'Ir a ' + venue.name"
+            (click)="scrollToSlide(i)"
+          >
+            <span class="dot-bar"></span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <!-- Editorial Colophon with Instagram Link -->
     <div class="footer-colophon">
       <span class="colophon-brand">The Beatles Duo</span>
+
+      <a
+        [href]="instagramUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="colophon-instagram-link"
+        aria-label="Seguir a The Beatles Dúo en Instagram (@thebeatles_duo)"
+      >
+        <svg
+          class="colophon-ig-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <rect
+            x="2.5"
+            y="2.5"
+            width="19"
+            height="19"
+            rx="5.2"
+            stroke="currentColor"
+            stroke-width="1.65"
+          />
+          <circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.65" />
+          <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
+        </svg>
+        <span>Instagram · &#64;thebeatles_duo</span>
+      </a>
+
       <span class="colophon-locations">TORREVIEJA · MORAIRA · ALICANTE · MURCIA</span>
     </div>
   </div>
