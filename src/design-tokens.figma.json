@@ -1,0 +1,52 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "meta": {
+    "name": "The Beatles Duo — Dark Editorial Design Tokens (Iteración 2)",
+    "sourceReference": "Silhouette Dark Editorial Reference (imagen.jpg)",
+    "philosophy": "100% typographic & negative-space architecture on absolute pitch black (#050505), 1px low-opacity hairlines, and exclusive Luminous Amber (#F58216) reserved strictly for the WhatsApp CTA and date hover states."
+  },
+  "color": {
+    "surface": {
+      "obsidian": { "$type": "color", "$value": "#050505", "description": "Fondo negro absoluto nocturno" },
+      "elevated": { "$type": "color", "$value": "#0B0B0B", "description": "Superficie sutil para contenedores editoriales" },
+      "hover": { "$type": "color", "$value": "#11100E", "description": "Fondo sutil en hover de fila de evento" }
+    },
+    "ink": {
+      "ivory": { "$type": "color", "$value": "#F6F4F0", "description": "Blanco marfil editorial para títulos y fechas" },
+      "silver": { "$type": "color", "$value": "#A39E96", "description": "Gris cálido editorial para lugares y subtítulos" },
+      "ash": { "$type": "color", "$value": "#68645E", "description": "Texto secundario de baja opacidad para metadatos y etiquetas" },
+      "onAmber": { "$type": "color", "$value": "#050505", "description": "Contraste negro profundo sobre el botón ámbar" }
+    },
+    "accent": {
+      "amber": { "$type": "color", "$value": "#F58216", "description": "Ámbar/Naranja exclusivo para CTA de WhatsApp y hover states de fechas" },
+      "amberBright": { "$type": "color", "$value": "#FF9838", "description": "Iluminación activa del acento ámbar" },
+      "amberGlow": { "$type": "color", "$value": "rgba(245, 130, 22, 0.18)", "description": "Halo nocturno para el botón magnético" }
+    },
+    "border": {
+      "hairline": { "$type": "color", "$value": "rgba(246, 244, 240, 0.08)", "description": "Línea divisoria de 1px de baja opacidad" },
+      "hairlineSubtle": { "$type": "color", "$value": "rgba(246, 244, 240, 0.05)", "description": "Separador interior ultra-fino" },
+      "hairlineAmber": { "$type": "color", "$value": "rgba(245, 130, 22, 0.45)", "description": "Línea divisoria activa en hover de fecha" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": { "$type": "fontFamily", "$value": "'Cormorant Garamond', 'Playfair Display', Georgia, serif" },
+      "serifTitle": { "$type": "fontFamily", "$value": "'Playfair Display', Georgia, serif" },
+      "sansData": { "$type": "fontFamily", "$value": "'Montserrat', 'Inter', sans-serif" },
+      "sansBody": { "$type": "fontFamily", "$value": "'Inter', sans-serif" }
+    },
+    "scale": {
+      "heroTitle": { "$type": "dimension", "$value": "clamp(3.25rem, 11vw, 6.2rem)" },
+      "heroScriptSub": { "$type": "dimension", "$value": "clamp(1.65rem, 5vw, 2.75rem)" },
+      "sectionHeading": { "$type": "dimension", "$value": "clamp(1.85rem, 4.5vw, 2.85rem)" },
+      "eventDate": { "$type": "dimension", "$value": "clamp(1.05rem, 2.2vw, 1.25rem)" },
+      "eventVenue": { "$type": "dimension", "$value": "clamp(0.95rem, 1.8vw, 1.08rem)" },
+      "metaSmall": { "$type": "dimension", "$value": "0.72rem" }
+    }
+  },
+  "spacing": {
+    "gutterInline": { "$type": "dimension", "$value": "clamp(1.5rem, 6vw, 5rem)" },
+    "sectionVertical": { "$type": "dimension", "$value": "clamp(5.5rem, 14vh, 10rem)" },
+    "rowPaddingY": { "$type": "dimension", "$value": "clamp(1.15rem, 2.4vh, 1.55rem)" }
+  }
+}

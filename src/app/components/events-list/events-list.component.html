@@ -1,0 +1,88 @@
+<section
+  #sectionRoot
+  id="proximos-eventos"
+  class="events-section"
+  aria-labelledby="events-heading"
+>
+  <div class="events-header-block">
+    <div class="events-title-row">
+      <h2 id="events-heading" class="events-heading">
+        Próximos <span class="heading-italic">Eventos</span>
+      </h2>
+      <p class="events-summary tabular-nums">
+        {{ scheduleService.totalFilteredCount() }} actuaciones en directo · 2027
+      </p>
+    </div>
+
+    <!-- Minimalist Monochrome Filter Bar -->
+    <div class="venue-filter-bar" role="tablist" aria-label="Filtrar fechas por sala">
+      @for (item of scheduleService.venueFilters; track item.value) {
+        <button
+          type="button"
+          role="tab"
+          class="filter-tab"
+          [class.is-active]="scheduleService.activeVenueFilter() === item.value"
+          [attr.aria-selected]="scheduleService.activeVenueFilter() === item.value"
+          (click)="selectFilter(item.value)"
+        >
+          <span class="tab-venue">{{ item.label }}</span>
+          <span class="tab-city">{{ item.city }}</span>
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Ultra-Minimalist Vertical Schedule List -->
+  <ol class="events-ledger" aria-live="polite">
+    @for (gig of scheduleService.filteredGigs(); track gig.id) {
+      <li
+        #eventRow
+        class="event-row"
+        [class.is-highlighted]="scheduleService.highlightedGigId() === gig.id"
+        (mouseenter)="onRowInteraction(gig.id)"
+        (mouseleave)="onRowInteraction(null)"
+        (touchstart)="onRowInteraction(gig.id)"
+      >
+        <div class="event-row-inner">
+          <!-- [Fecha] Dominant Hierarchy -->
+          <div class="cell-date tabular-nums">
+            <span class="date-numeral">{{ gig.dayNumber }}</span>
+            <div class="date-text-group">
+              <span class="date-full">{{ gig.dateDisplay }}</span>
+              <span class="date-weekday-sub">{{ gig.weekday }}</span>
+            </div>
+          </div>
+
+          <span class="cell-divider" aria-hidden="true">|</span>
+
+          <!-- [Hora] (si aplica) -->
+          <div class="cell-time tabular-nums">
+            @if (gig.time) {
+              <span class="time-text">{{ gig.time }}</span>
+            } @else if (gig.note) {
+              <span class="time-text time-text--muted">{{ gig.note }}</span>
+            } @else {
+              <span class="time-text time-text--muted">Directo Acústico</span>
+            }
+          </div>
+
+          <span class="cell-divider" aria-hidden="true">|</span>
+
+          <!-- [Nombre del Bar/Lugar] -->
+          <div class="cell-venue">
+            <span class="venue-name">{{ gig.venue }}</span>
+          </div>
+
+          <span class="cell-divider" aria-hidden="true">|</span>
+
+          <!-- [Ciudad] -->
+          <div class="cell-city">
+            <span class="city-name">{{ gig.city }}</span>
+          </div>
+        </div>
+      </li>
+    } @empty {
+      <li class="events-empty">No hay fechas programadas para este filtro.</li>
+    }
+  </ol>
+</section>

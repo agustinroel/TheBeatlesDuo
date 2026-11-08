@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T23:43:15+01:00",
+  "title": "Design System: The Beatles Duo",
+  "extensions": {
+    "colorMeta": {
+      "amber-primary": {
+        "role": "primary",
+        "displayName": "Luminous Editorial Amber",
+        "canonical": "#f58216",
+        "tonalRamp": ["#2b1502", "#4d2604", "#7a3d07", "#b35b0d", "#f58216", "#ff9838", "#ffb670", "#ffdcc0"]
+      },
+      "obsidian-bg": {
+        "role": "neutral",
+        "displayName": "Pitch Obsidian",
+        "canonical": "#050505",
+        "tonalRamp": ["#050505", "#0a0a0a", "#0f0e0c", "#171614", "#24221f", "#3d3a35", "#625e57", "#9a958d"]
+      },
+      "ivory-ink": {
+        "role": "neutral",
+        "displayName": "Editorial Ivory",
+        "canonical": "#f6f4f0",
+        "tonalRamp": ["#2b2926", "#4a4742", "#625e57", "#9a958d", "#bdb8b0", "#d6d2c9", "#eae7e1", "#f6f4f0"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Nocturnal Editorial Display",
+        "purpose": "Hero centerpiece title pairing Playfair Display with italic Cormorant Garamond."
+      },
+      "headline": {
+        "displayName": "Section Editorial Headline",
+        "purpose": "Section headers combining roman serif and italic script."
+      },
+      "title": {
+        "displayName": "Tabular Date Numeral",
+        "purpose": "Two-digit day numerals in the minimalist event ledger."
+      },
+      "body": {
+        "displayName": "Light Editorial Body",
+        "purpose": "Intimate nocturnal descriptions with generous line height."
+      },
+      "label": {
+        "displayName": "Geometric Sans Data",
+        "purpose": "Dates, times, venues, and tracked uppercase city labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "amber-cta-glow",
+        "value": "0 18px 46px rgba(245, 130, 22, 0.22)",
+        "purpose": "Nocturnal amber glow under the primary WhatsApp CTA button."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Intimate nocturnal deceleration for character reveals, scroll fade-ups, and magnetic physics."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "720px" },
+      { "name": "ledger-desktop", "value": "780px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Amber Magnetic WhatsApp CTA",
+      "kind": "button",
+      "refersTo": "button-magnetic-cta",
+      "description": "High-contrast amber CTA button (#f58216) with pitch-black typography and GSAP magnetic tracking.",
+      "html": "<a href=\"https://wa.me/34663034905\" class=\"ds-amber-cta\"><span class=\"ds-cta-text\"><span class=\"ds-cta-main\">Contrataciones · Contactar al Dúo</span><span class=\"ds-cta-sub\">WhatsApp Directo · +34 663 03 49 05</span></span><span class=\"ds-cta-box\">↗</span></a>",
+      "css": ".ds-amber-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; max-width: 520px; min-height: 74px; padding: 18px 32px; border-radius: 6px; background: #f58216; border: 1px solid #ff9838; color: #050505; text-decoration: none; box-shadow: 0 18px 46px rgba(245, 130, 22, 0.22); transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-amber-cta:hover { background: #ff9838; } .ds-cta-text { display: flex; flex-direction: column; gap: 3px; text-align: left; } .ds-cta-main { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; } .ds-cta-sub { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: rgba(5, 5, 5, 0.76); } .ds-cta-box { width: 44px; height: 44px; border-radius: 4px; border: 1px solid rgba(5, 5, 5, 0.22); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }"
+    },
+    {
+      "name": "Ultra-Minimalist Gig Row",
+      "kind": "custom",
+      "refersTo": "gig-ledger-row",
+      "description": "1px hairline-divided event row with amber hover state on date and city.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-num\">05</span><span class=\"ds-date\">Viernes 5 de noviembre de 2027</span><span class=\"ds-time\">18:00 hs</span><span class=\"ds-venue\">Saxo</span><span class=\"ds-city\">MORAIRA</span></div>",
+      "css": ".ds-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 12px; background: #050505; border-bottom: 1px solid rgba(246, 244, 240, 0.08); color: #f6f4f0; transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover { background: #0f0e0c; border-bottom-color: rgba(245, 130, 22, 0.45); } .ds-row:hover .ds-num, .ds-row:hover .ds-date, .ds-row:hover .ds-city { color: #f58216; } .ds-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; } .ds-date { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600; } .ds-time { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #d6d2c9; } .ds-venue { font-family: 'Montserrat', sans-serif; font-size: 15px; color: #9a958d; } .ds-city { font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 0.14em; color: #625e57; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Nocturnal Dark Editorial Archive",
+    "overview": "Inspired by high-contrast nocturnal concert editorials, this system strips away photography and decorative cards so 100% of the visual weight rests on typographic contrast, 1px low-opacity hairlines (rgba(246, 244, 240, 0.08)), and generous negative space over an absolute pitch-black canvas (#050505).",
+    "keyCharacteristics": [
+      "Absolute pitch-black ground (#050505) with ultra-subtle analog film grain (0.032 opacity).",
+      "Editorial Serif + Script italic pairing (Playfair Display + Cormorant Garamond) contrasted against geometric sans-serif (Montserrat + Inter) for schedule data.",
+      "Ultra-minimalist vertical event ledger divided by 1px hairlines (rgba(246, 244, 240, 0.08)).",
+      "Exclusive Luminous Amber (#f58216) reserved strictly for the magnetic WhatsApp button and date row hover states."
+    ],
+    "rules": [
+      {
+        "name": "The Exclusive Amber Rule",
+        "body": "#f58216 is forbidden on static badges, navigation links, or filter pills. It may only illuminate the primary WhatsApp booking CTA and the interactive hover/touch state of each date row.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do keep the background at #050505 and rely on 1px low-opacity hairlines (rgba(246, 244, 240, 0.08)) and negative space for structure.",
+      "Do restrict #f58216 (amber) exclusively to the WhatsApp CTA button and the hover/touch states of the event rows."
+    ],
+    "donts": [
+      "Don't add colored badges, pills, or backgrounds inside the event list rows.",
+      "Don't use photographs or heavy card containers; let the serif/sans-serif typographic contrast carry 100% of the visual weight."
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+<header #heroRoot class="hero-stage" aria-label="Presentación de The Beatles Duo">
+  <!-- Minimalist Dark Editorial Topbar -->
+  <nav class="hero-topbar" aria-label="Navegación principal">
+    <div class="brand-lockup" aria-label="The Beatles Dúo">
+      <svg class="brand-drum-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="1.3" />
+        <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="0.7" stroke-opacity="0.55" />
+        <rect x="14.5" y="1.2" width="3" height="2.4" rx="0.5" fill="currentColor" />
+        <rect x="14.5" y="28.4" width="3" height="2.4" rx="0.5" fill="currentColor" />
+        <rect x="1.2" y="14.5" width="2.4" height="3" rx="0.5" fill="currentColor" />
+        <rect x="28.4" y="14.5" width="2.4" height="3" rx="0.5" fill="currentColor" />
+      </svg>
+      <span class="brand-signature">The Beatles <em>Dúo</em></span>
+    </div>
+
+    <div class="topbar-meta tabular-nums">
+      <span class="meta-tour">TOUR 2027 · 26 FECHAS</span>
+    </div>
+  </nav>
+
+  <!-- Main Editorial Centerpiece: Blended Stage Photograph + Iconic Typography Lockup -->
+  <div class="hero-centerpiece">
+    <!-- Archival Duo Stage Photo with Feathered Black Edges -->
+    <figure
+      #illustrationStage
+      class="duo-photo-stage"
+      aria-label="Imagen de escenario de The Beatles Dúo fundida con el fondo negro"
+    >
+      <div class="photo-vignette-frame">
+        <img
+          src="/images/beatles-duo-hero.jpg"
+          alt="John Lennon y Paul McCartney cantando en directo con guitarras acústicas"
+          class="duo-hero-img"
+          width="1024"
+          height="669"
+          fetchpriority="high"
+        />
+      </div>
+    </figure>
+
+    <!-- Classic Beatles Drop-T + Bass Drum Inspired Typographic Lockup -->
+    <div class="title-composition">
+      <div class="logo-lockup" aria-hidden="true">
+        <span #titleChar class="logo-the">THE</span>
+        <span class="logo-beatles-row">
+          <span class="char-mask"><span #titleChar class="char-inner char-drop-b">B</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner">E</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner">A</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner char-drop-t">T</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner">L</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner">E</span></span>
+          <span class="char-mask"><span #titleChar class="char-inner">S</span></span>
+        </span>
+        <span class="logo-duo-row">
+          <span class="duo-flank-line"></span>
+          <span #titleChar class="logo-duo-word">Dúo</span>
+          <span class="duo-flank-line"></span>
+        </span>
+      </div>
+
+      <!-- Accessible H1 for Screen Readers & SEO -->
+      <h1 class="sr-only">The Beatles Dúo — Live Acoustic Tribute</h1>
+
+      <p class="hero-editorial-tagline">Live Acoustic Tribute</p>
+    </div>
+
+    <p class="hero-subtitle-deck">
+      Dos voces y dos guitarras en la intimidad de la noche. El repertorio inmortal de Liverpool en
+      directo por <strong>Torrevieja</strong>, <strong>Moraira</strong>,
+      <strong>Alicante</strong> y <strong>Murcia</strong>.
+    </p>
+  </div>
+
+  <!-- Nocturnal Scroll Cue -->
+  <div class="hero-footer">
+    <button
+      #scrollTriggerBtn
+      type="button"
+      class="scroll-cue-btn"
+      (click)="scrollToDates()"
+      aria-label="Hacer scroll hacia los próximos eventos"
+    >
+      <span class="scroll-cue-label">Ver Fechas</span>
+      <span class="scroll-cue-line" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>

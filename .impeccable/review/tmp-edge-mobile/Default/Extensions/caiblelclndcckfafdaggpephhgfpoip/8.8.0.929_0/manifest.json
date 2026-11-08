@@ -1,0 +1,37 @@
+{
+   "action": {
+      "default_icon": "icons/iconDisabled16.png",
+      "default_title": "Avira Safe Shopping"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "contentScript.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "css/fonts.css" ],
+      "matches": [ "https://*/*", "http://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extensionDescription__",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu7b8URqmqiXPsRixnWxpNOrfwcT3g6cG95jdizP+95pBPCXTu5E3WzVeLHC33zlAFZVf83gqg+YvgoOdY6IB4HpfR4sdvuD9rmpaONf5DDGhfYSM+zg+eXFfGuJgpfVAbJCoodYy/K3uCj7hZdQXP7rTL3diG+fmgTTMrGQvfTD56euq/dDnJIdx9fhUt2t4nZSQ+5q9K/AUnT+kdrZ6kSPFMFx197FkT8jnK2XCvMvnwRzHXLG76x1RR9QBwnvxoqg+KCt0i91GUHv6A3wDXB/3NT7LMpUPcBLxhWK20TCVjfPLS7LTfBy7Y8HrbuRtOStF0kFWHzY0U6oVGFI2xQIDAQAB",
+   "manifest_version": 3,
+   "name": "Avira Safe Shopping",
+   "permissions": [ "storage", "alarms", "webRequest", "scripting", "webNavigation", "tabs" ],
+   "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "version": "8.8.0.929",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "siteScript.js", "redirectionChainSiteScript.js", "*.js.map", "*.css", "*.css.map", "fonts/*", "*.svg" ]
+   } ]
+}
